@@ -6,7 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
-import java.lang.reflect.Modifier
+import androidx.compose.ui.Modifier
 
 @Composable
 fun EditText(textba: String) {
