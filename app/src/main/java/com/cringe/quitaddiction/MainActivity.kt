@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.cringe.quitaddiction.ui.theme.MoneySavedText
 import com.cringe.quitaddiction.ui.theme.QuitAddictionTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
             QuitAddictionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                    Dashboard("Android")
                 }
             }
         }
@@ -29,14 +30,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun Dashboard(name: String) {
+    MoneySavedText("5")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     QuitAddictionTheme {
-        Greeting("Android")
+        Dashboard("Android")
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QuitAddiction</string>
+    <string name="dashboard_saved_money">You have saved:&#160;</string>
+    <string name="currency_saved">%s$</string>
 </resources>
