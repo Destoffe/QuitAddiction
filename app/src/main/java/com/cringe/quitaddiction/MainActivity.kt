@@ -5,9 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.cringe.quitaddiction.ui.theme.EditText
+import androidx.navigation.compose.rememberNavController
+import com.cringe.quitaddiction.ui.theme.MoneySavedText
 import com.cringe.quitaddiction.ui.theme.QuitAddictionTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,14 +30,14 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    EditText(textba = "Hello $name!")
+fun Dashboard(name: String) {
+    MoneySavedText("5")
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     QuitAddictionTheme {
-        Greeting("Android")
+        Dashboard("Android")
     }
 }
