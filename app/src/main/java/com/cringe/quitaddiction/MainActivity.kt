@@ -21,14 +21,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             QuitAddictionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Dashboard("Android")
+                    Dashboard()
                 }
             }
         }
@@ -36,7 +35,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Dashboard(name: String) {
+fun Dashboard() {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier.padding(top = 64.dp)) {
@@ -52,6 +51,6 @@ fun Dashboard(name: String) {
 @Composable
 fun DefaultPreview() {
     QuitAddictionTheme {
-        Dashboard("Android")
+        Dashboard()
     }
 }
