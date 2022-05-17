@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.style.TextAlign
@@ -15,6 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.cringe.quitaddiction.navigation.BottomNav
+import com.cringe.quitaddiction.navigation.Navigation
+import com.cringe.quitaddiction.navigation.Screens
 import com.cringe.quitaddiction.ui.theme.ExposedEditText
 import com.cringe.quitaddiction.ui.theme.MoneyProgressBar
 import com.cringe.quitaddiction.ui.theme.MoneySavedText
@@ -31,7 +33,7 @@ class MainActivity : ComponentActivity() {
             QuitAddictionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Dashboard()
+                    MainView()
                 }
             }
         }
@@ -39,7 +41,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun WelcomeView() {
+fun WelcomeView(navController: NavController) {
     Surface(color = MaterialTheme.colors.background) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -63,7 +65,7 @@ fun WelcomeView() {
             Button(modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp),
-                onClick = {}) {
+                onClick = {navController.navigate(Screens.Dashboard.route)}) {
                 Text("LETS QUIT")
             }
         }
@@ -71,7 +73,7 @@ fun WelcomeView() {
 }
 
 @Composable
-fun Dashboard() {
+fun Dashboard(navController: NavController) {
     Box(modifier = Modifier.fillMaxSize()) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = Modifier.padding(top = 64.dp)) {
@@ -83,11 +85,25 @@ fun Dashboard() {
 
 }
 
+@Composable
+fun MainView(){
+    val navController = rememberNavController()
+    Scaffold(bottomBar = { BottomNav(navController = navController) },) {
+        padding ->
+        Column(modifier = Modifier.padding(padding)) {
+            Navigation(navController)
+        }
+
+    }
+}
+
+
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
     QuitAddictionTheme {
-        Dashboard()
+        MainView()
     }
 }
