@@ -1,20 +1,24 @@
 package com.cringe.quitaddiction
 
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
+import androidx.compose.ui.unit.sp
+import com.cringe.quitaddiction.ui.theme.ExposedEditText
 import com.cringe.quitaddiction.ui.theme.MoneyProgressBar
 import com.cringe.quitaddiction.ui.theme.MoneySavedText
+import com.cringe.quitaddiction.ui.theme.OutlinedEditText
 import com.cringe.quitaddiction.ui.theme.QuitAddictionTheme
 import com.cringe.quitaddiction.ui.theme.RememberCard
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +33,39 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     Dashboard()
                 }
+                Dashboard()
+            }
+        }
+    }
+}
+
+@Composable
+fun WelcomeView() {
+    Surface(color = MaterialTheme.colors.background) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                modifier = Modifier.padding(vertical = 64.dp),
+                text = "Welcome!",
+                fontSize = 30.sp,
+                textAlign = TextAlign.Center
+            )
+            ExposedEditText("Android")
+            OutlinedEditText("How much do you spend daily?")
+            OutlinedEditText("What's your first goal?")
+        }
+
+        Column(
+            modifier = Modifier.fillMaxHeight(),
+            verticalArrangement = Arrangement.Bottom
+        ) {
+            Button(modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp),
+                onClick = {}) {
+                Text("LETS QUIT")
             }
         }
     }
@@ -47,7 +84,8 @@ fun Dashboard() {
 
 }
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
     QuitAddictionTheme {
