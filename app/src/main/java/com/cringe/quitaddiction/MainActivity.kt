@@ -33,7 +33,6 @@ class MainActivity : ComponentActivity() {
                 Surface(color = MaterialTheme.colors.background) {
                     Dashboard()
                 }
-                Dashboard()
             }
         }
     }
